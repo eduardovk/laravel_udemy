@@ -15,17 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Chama o metodo index do controller ContatoController
 // {variavel?} ponto de interrogacao para tornar o parametro opcional
-Route::get('/contato/{id?}', function($id = null){
-  return "Contato! ID: $id";
-});
+Route::get('/contato/{id?}', ['uses'=>'ContatoController@index']);
 
-Route::post('/contato', function($id = null){
+/*Route::post('/contato', function($id = null){
   //dd($_POST);  util para debug de variavies post
   return "Contato! ID: $id";
-});
+});*/
 
-Route::put('/contato', function($id = null){
-  dd($_POST);  
-  return "Contato! ID: $id";
-});
+Route::post('/contato', ['uses'=>'ContatoController@criar']);
+
+Route::put('/contato', ['uses'=>'ContatoController@editar']);
