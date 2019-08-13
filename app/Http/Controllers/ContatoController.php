@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 class ContatoController extends Controller
 {
     public function index(){
-      return  "Index do ContatoController";
+      $contatos = [
+        ["nome" => "Maria", "tel" => "12345678"],
+        ["nome" => "Pedro", "tel" => "87654321"]
+      ];
+      // chama view index da pasta contato enviando o array contatos compactado
+      return  view('contato.index', compact('contatos'));
     }
 
     public function criar(Request $req){
