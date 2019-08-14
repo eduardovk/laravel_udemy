@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Contato;
 
 class ContatoController extends Controller
 {
@@ -11,6 +12,11 @@ class ContatoController extends Controller
         ["nome" => "Maria", "tel" => "12345678"],
         ["nome" => "Pedro", "tel" => "87654321"]
       ];
+
+      $contato = new Contato(); //deve estar declarado 'use App\Contato antes'
+
+      //dd($contato->lista());
+
       // chama view index da pasta contato enviando o array contatos compactado
       return  view('contato.index', compact('contatos'));
     }
