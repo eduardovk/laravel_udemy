@@ -21,8 +21,10 @@ class UsuarioSeeder extends Seeder
         if(User::where('email','=',$dados['email'])->count()){ //se ja existe, atualiza
             $usuario = User::where('email', '=', $dados['email'])->first();
             $usuario->update($dados);
+            echo "Usuario alterado!";
         }else{ //se nao existe, cria
             User::create($dados);
+            echo "Usuario criado!";
         }
     }
 }
