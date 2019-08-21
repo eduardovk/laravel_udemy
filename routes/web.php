@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Chama o metodo index do controller ContatoController
 // {variavel?} ponto de interrogacao para tornar o parametro opcional
 Route::get('/contato/{id?}', ['uses'=>'ContatoController@index']);
@@ -23,6 +19,8 @@ Route::get('/contato/{id?}', ['uses'=>'ContatoController@index']);
   //dd($_POST);  util para debug de variavies post
   return "Contato! ID: $id";
 });*/
+
+Route::get('/', ['uses'=>'Site\HomeController@index']);
 
 Route::post('/contato', ['uses'=>'ContatoController@criar']);
 

@@ -33,6 +33,11 @@ class CursoController extends Controller
     return redirect()->route('admin.cursos');
   }
 
+  public function deletar($id){
+    Curso::find($id)->delete();
+    return redirect()->route('admin.cursos');
+  }
+
   private function gravar(Request $req, $id = null){ //recebe post do formulario
     $dados = $req->all();
 
@@ -46,6 +51,8 @@ class CursoController extends Controller
       $imagem->move($dir, $nm_imagem);
       //atualiza o nome da imagem no array de dados para o nome da imagem salva no disco
       $dados['imagem'] = $dir."/".$nm_imagem;
+    }else{
+      $dados['imagem'] = "";
     }
 
     if(isset($dados['publicado'])){
