@@ -29,6 +29,10 @@
         @endforeach
       </div>
 
+      <div class="row" align='center'>
+          {{$cursos->links() /*exibir links da paginacao*/ }}
+      </div>
+
     </div>
 
 
